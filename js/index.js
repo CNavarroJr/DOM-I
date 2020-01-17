@@ -37,6 +37,88 @@ const siteContent = {
   },
 };
 
-// Example: Update the img src for the logo
-let logo = document.getElementById("logo-img");
-logo.setAttribute('src', siteContent["nav"]["img-src"])
+// // Example: Update the img src for the logo
+// let logo = document.getElementById("logo-img");
+// logo.setAttribute('src', siteContent["nav"]["img-src"]);
+
+
+const select = s => document.querySelector(s),
+      selectAll = s => document.querySelectorAll(s);
+
+const bottomh4 = selectAll('.bottom-content .text-content h4'),
+      bottomp = selectAll('.bottom-content .text-content p'),
+      ctah1 = select('.cta-text h1'),
+      ctabutton = select('.cta-text button'),
+      ctaimg = select('#cta-img'),
+      contacth4 = select('.contact h4'),
+      contactp = selectAll('.contact p'),
+      footer = select('footer p'),
+      logoimg = select('#logo-img'),
+      middleimg = select('#middle-img')
+      nav = select('header nav'),
+      navlist = selectAll('header nav a'),
+      tcontenth4 = selectAll('.top-content .text-content h4'),
+      tcontentp = selectAll('.top-content .text-content p');
+
+
+// // Navigation part
+const blog = document.createElement('a'),
+      adventure = document.createElement('a');
+
+blog.innerText = 'Blog';
+adventure.innerText = 'Adventure';
+
+nav.prepend(blog);
+nav.appendChild(adventure);
+
+navlist.forEach((e, i) => {
+  e.innerText = siteContent['nav'][`nav-item-${i + 1}`];
+});
+
+navlist = selectAll('header nav a');
+
+navlist.forEach(e => e.style.color = 'green');
+
+//Logo
+logoimg.setAttribute('src', siteContent['nav']['img-src']);
+
+//Call To Action
+ctah1.innerText = siteContent['cta']['h1'];
+ctabutton.innerText = siteContent['cta']['button'];
+ctaimg.setAttribute('src', siteContent['cta']['img-src']);
+
+//Features Section
+tcontenth4[0].innerText = siteContent['main-content']['features-h4'];
+tcontentp[0].innerText = siteContent['main-content']['features-content'];
+
+//About Section
+tcontenth4[1].innerText = siteContent['main-content']['about-h4'];
+tcontentp[1].innerText = siteContent['main-content']['about-content'];
+
+//Middle Image 
+middleimg.setAttribute('src', siteContent['main-content']['middle-img-src']);
+
+//Services Section
+bottomh4[0].innerText = siteContent['main-content']['services-h4'];
+bottomp[0].innerText = siteContent['main-content']['services-content'];
+
+//Product Section
+bottomh4[1].innerText = siteContent['main-content']['product-h4'];
+bottomp[1].innerText = siteContent['main-content']['product-content'];
+
+//Vision Section
+bottomh4[2].innerText = siteContent['main-content']['vision-h4'];
+bottomp[2].innerText = siteContent['main-content']['vision-content'];
+
+//Contact Section
+contacth4.innerText = siteContent['contact']['contact-h4'];
+contactp[0].innerText = siteContent['contact']['address'];
+contactp[1].innerText = siteContent['contact']['phone'];
+contactp[2].innerText = siteContent['contact']['email'];
+
+//Copyright
+footer.innerText = siteContent['footer']['copyright'];
+
+
+document.querySelector(".top-content").style.backgroundColor = "#14967c";
+document.querySelector(".main-content").style.backgroundColor = "#afe4e4";
